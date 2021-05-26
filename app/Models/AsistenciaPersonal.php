@@ -16,4 +16,11 @@ class AsistenciaPersonal extends Model
         'fecha_ingreso',
         'fecha_salida'
     ];
+
+    /**
+     * Persona a la que le pertenece esta asistencia
+     */
+    public function persona(){
+        return $this->belongsTo(Persona::class);
+    }
 }

@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\AsistenciaPersonal;
+use App\Models\Persona;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AsistenciaPersonalFactory extends Factory
@@ -21,8 +22,12 @@ class AsistenciaPersonalFactory extends Factory
      */
     public function definition()
     {
+        //obtengos los ids de todas las personas
+        $personas = Persona::select('id')->get();
+        
         return [
-            'persona_id' => rand(1,100),
+            //selecciono una persona aleatoria y accedo a su ->id
+            'persona_id' => $this->faker->randomElement($personas)->id,
             'fecha_ingreso' => $this->faker->dateTime,
             'fecha_salida' => $this->faker->dateTime,
         ];

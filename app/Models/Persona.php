@@ -21,4 +21,10 @@ class Persona extends Model
         'email'
     ];
 
+    /**
+     * Una persona tiene o registra varias asistencias
+     */
+    public function asistencias(){
+        return $this->hasMany(AsistenciaPersonal::class);
+    }
 }

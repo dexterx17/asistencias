@@ -15,7 +15,9 @@ class CreateAsistenciasPersonasTable extends Migration
     {
         Schema::create('asistencias_personas', function (Blueprint $table) {
             $table->id();
-            $table->integer('persona_id');
+            $table->unsignedBigInteger('persona_id');
+            $table->foreign('persona_id')->references('id')
+                ->on('personas');//definimos la relacion 
             $table->datetime('fecha_ingreso');
             $table->datetime('fecha_salida')->nullable();
             $table->timestamps();
