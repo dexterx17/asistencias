@@ -33,16 +33,16 @@ Route::get('/',function(){
 //Route::tipo('ruta-url',[Controlador::class,'metodo'])->name('nombre.ruta);
 
 //Devuelve el listado de personas
-Route::get('/team',[Personas::class,'index'])->name('personas.index');
+Route::get('/personas',[Personas::class,'index'])->name('personas.index');
 
-Route::get('/team/crear',[Personas::class,'create'])->name('personas.create');
+Route::get('/personas/crear',[Personas::class,'create'])->name('personas.create');
 
-Route::get('/team/{persona}/edit',[Personas::class,'edit'])->name('personas.edit');
+Route::get('/personas/{persona}/edit',[Personas::class,'edit'])->name('personas.edit');
 
-Route::get('/team/show/{persona}',[Personas::class,'show'])->name('personas.show');
+Route::get('/personas/show/{persona}',[Personas::class,'show'])->name('personas.show');
 
-Route::post('/team',[Personas::class,'store'])->name('personas.store');
+Route::post('/personas',[Personas::class,'store'])->name('personas.store');
 
-Route::put('/team/{persona}',[Personas::class,'update'])->name('personas.update');
+Route::put('/personas/{persona}',[Personas::class,'update'])->name('personas.update');
 
-Route::get('/team/{persona}/desactivar',[Personas::class,'desactivar'])->name('personas.desactivar');
+Route::get('/personas/{persona}/desactivar',[Personas::class,'desactivar'])->name('personas.desactivar');
