@@ -15,6 +15,10 @@ class Personas extends Controller
     public function index()
     {
         $personas = Persona::all();//Select * from 'Persona'
+        // $personas = Persona::orderBy('nombre','asc')->get();//Select * from personas order by nombre desc;
+        // $personas = Persona::where('id','<',50)->get();// Select * from personas where id < 50;
+        // $personas = Persona::select('nombres','apellidos')->get();// Select nombres,apellidos from personas;
+        
 
         return view('personas.listado',[
             'personas'  => $personas,
@@ -100,7 +104,9 @@ class Personas extends Controller
      */
     public function destroy(Persona $persona)
     {
-        //
+        $persona->delete();
+
+        return redirect()->route('personas.index');
     }
 
     public function desactivar(Persona $persona){

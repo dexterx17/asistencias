@@ -45,4 +45,6 @@ Route::post('/personas',[Personas::class,'store'])->name('personas.store');
 
 Route::put('/personas/{persona}',[Personas::class,'update'])->name('personas.update');
 
+Route::delete('/personas/{persona}',[Personas::class,'destroy'])->name('personas.destroy');
+
 Route::get('/personas/{persona}/desactivar',[Personas::class,'desactivar'])->name('personas.desactivar');
