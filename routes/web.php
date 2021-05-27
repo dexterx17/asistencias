@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Habilidades;
 use App\Http\Controllers\Personas;
 use Illuminate\Support\Facades\Route;
 
@@ -48,3 +49,12 @@ Route::put('/personas/{persona}',[Personas::class,'update'])->name('personas.upd
 Route::delete('/personas/{persona}',[Personas::class,'destroy'])->name('personas.destroy');
 
 Route::get('/personas/{persona}/desactivar',[Personas::class,'desactivar'])->name('personas.desactivar');
+Route::get('/personas/{persona}/desactivar',[Personas::class,'desactivar'])->name('personas.desactivar');
+
+//Rutas para habilidades
+Route::get('/habilidades',[Habilidades::class,'index'])->name('habilidades.index');
+Route::get('/habilidades/create',[Habilidades::class,'create'])->name('habilidades.create');
+Route::post('/habilidades',[Habilidades::class,'store'])->name('habilidades.store');
+Route::get('/habilidades/{habilidad}',[Habilidades::class,'show'])->name('habilidades.show');
+Route::get('/habilidades/edit',[Habilidades::class,'edit'])->name('habilidades.edit');
+Route::put('/habilidades/{habilidad}',[Habilidades::class,'update'])->name('habilidades.update');
