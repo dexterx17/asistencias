@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PersonaStoreRequest;
 use App\Models\Persona;
 use Illuminate\Http\Request;
 
@@ -41,14 +42,12 @@ class Personas extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PersonaStoreRequest $request)
     {
         //dd($request->all());
 
         $persona = Persona::create($request->all());
         
-        // $persona = new Persona($request->all());
-        // $persona->save();
 
         return response()->json($persona);
     }
