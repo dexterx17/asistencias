@@ -65,7 +65,7 @@ class Habilidades extends Controller
      */
     public function edit(Habilidad $habilidad)
     {
-        //
+        return view('habilidades.edit');
     }
 
     /**
