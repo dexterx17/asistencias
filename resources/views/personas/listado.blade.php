@@ -4,6 +4,8 @@
 
 @section('contenido')
 
+<example-component></example-component>
+
 <h1>Listado de Personas
     <a href="{{ route('personas.create') }}">Nuevo</a>
 </h1>
@@ -23,7 +25,7 @@
             <th>Cedula</th>
             <th>Edad</th>
             <th>Email</th>
-            <th>Habilidades</th>☻
+            <th>Habilidades</th>
             <th>Acciones</th>
         </tr>
     </thead>
