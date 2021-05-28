@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+@extends('templates.main')
+
+@section('title','Crear Habilidad')
+
+@section('contenido')
+    <h2>Crear Habilidad</h2>
     <form action="{{ route('habilidades.store')}}" method="post">
         @csrf
 
+        <div class="form-group">
+            <label for="nombre">Persona *</label>
+            <select name="persona_id" id="persona_id" class="form-control">
+            @foreach($personas as $persona)
+                <option value="{{ $persona->id }}">{{ $persona->nombres }} {{ $persona->apellidos }}</option>
+            @endforeach
+            </select>
+        </div>
         <div>
             <label for="nombre">Nombre *</label>
             <input type="text" name="nombre" placeholder="Nombre de la habilidad" required>
@@ -26,5 +32,4 @@
             <button type="submit">Guardar</button>
         </div>
     </form>
-</body>
-</html>
+@endsection

@@ -48,8 +48,9 @@ class Personas extends Controller
 
         $persona = Persona::create($request->all());
         
-
-        return response()->json($persona);
+        $request->session()->flash('success','Usuario creado correctamente');
+        
+        return redirect()->route('personas.index');
     }
 
     /**

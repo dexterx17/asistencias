@@ -1,48 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado personas</title>
-</head>
-<body>
-    <h1>Listado de Personas
-    <a href="{{ route('personas.create') }}">Nuevo</a>
-    </h1>
+@extends('templates.main')
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>Cedula</th>
-                <th>Edad</th>
-                <th>Email</th>
-                <th>Habilidades</th>☻
-                <th>Acciones</th>
+@section('title','Listado de Personas')
+
+@section('contenido')
+
+<h1>Listado de Personas
+    <a href="{{ route('personas.create') }}">Nuevo</a>
+</h1>
+
+@if(Session::has('success'))
+<div class="alert alert-success" role="alert">
+    {{ Session::get('success')}}
+</div>
+@endif
+
+<table class="table table-dark table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombr☻es</th>
+            <th>Apellidos</th>
+            <th>Cedula</th>
+            <th>Edad</th>
+            <th>Email</th>
+            <th>Habilidades</th>☻
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($personas as $persona)
+            <tr class="@if($loop->first) table-danger @endif">
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $persona->nombres }}</td>
+                <td>{{ $persona->nombres }}</td>
+                <td>{{ $persona->apellidos }}</td>
+                <td>{{ $persona->cedula }}</td>
+                <td>{{ $persona->edad }}</td>
+                <td>{{ $persona->email }}</td>
+                <td>0</td>
+                <td>
+                    <a class="btn btn-outline-primary" href="{{ route('personas.edit',$persona->id) }}">Editar</a>
+                    <form action="{{ route('personas.destroy',$persona->id) }}"  method="post">
+                            @csrf
+                            @method('delete')
+                        <button class="btn btn-outline-danger" type="submit">Eliminar</a>
+                    </form>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach($personas as $persona)
-                <tr>
-                    <td>{{ $persona->nombres }}</td>
-                    <td>{{ $persona->apellidos }}</td>
-                    <td>{{ $persona->cedula }}</td>
-                    <td>{{ $persona->edad }}</td>
-                    <td>{{ $persona->email }}</td>
-                    <td>0</td>
-                    <td>
-                        <a href="{{ route('personas.edit',$persona->id) }}">Editar</a>
-                        <form action="{{ route('personas.destroy',$persona->id) }}"  method="post">
-                                @csrf
-                                @method('delete')
-                            <button type="submit">Eliminar</a>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</body>
-</html>
+        @endforeach
+    </tbody>
+</table>
+
+@endsection

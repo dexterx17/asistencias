@@ -12,6 +12,7 @@ class Habilidad extends Model
     protected $table = "habilidades";
 
     protected $fillable = [
+        'persona_id',
         'nombre',
         'porcentaje',
         'orden'

@@ -30,6 +30,10 @@ Route::get('/',function(){
     return "HOLA desde rutas";
 });
 
+Route::get('/main',function(){
+    return view('templates.main');
+});
+
 //Sintaxis para definir rutas
 //Route::tipo('ruta-url',[Controlador::class,'metodo'])->name('nombre.ruta);
 

@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creacion de Personas</title>
-</head>
-<body>
+@extends('templates.main')
+
+@section('title','Editar Personas')
+
+@section('contenido')
+
     <h2>Edicion de Personas</h2>
 
     <form action="{{ route('personas.update',$persona->id) }}" method="post">
@@ -40,5 +37,4 @@
             <a href="{{ route('personas.index') }}">Atras</a>
         </div>
     </form>
-</body>
-</html>
+@endsection
